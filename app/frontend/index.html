@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>
+                        RED DEVIL DYNAMICS // AI PREDICTOR
+                    </title>
+                    <script src="https://cdn.tailwindcss.com">
+                    </script>
+                    <script src="https://unpkg.com/lucide@latest">
+                    </script>
+                    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+                        <link rel="stylesheet" href="./css/style.css">
+                        </head>
+                        <body class="p-4 md:p-10">
+                            <div class="max-w-6xl mx-auto">
+                                <header class="mb-16 relative">
+                                    <div class="absolute -left-10 top-0 text-[12rem] font-black opacity-5 select-none pointer-events-none header-font">
+                                        MUFC
+                                    </div>
+                                    <h1 class="text-7xl md:text-9xl header-font font-bold uppercase leading-none tracking-tighter">
+                                        RED DEVIL
+                                        <br>
+                                            <span class="text-[#DA291C]">
+                                                DYNAMICS
+                                            </span>
+                                        </h1>
+                                        <div class="flex items-center gap-4 mt-2">
+                                            <div class="h-1 w-20 bg-[#DA291C]">
+                                            </div>
+                                            <p class="text-xl uppercase tracking-[0.3em] font-light">
+                                                AI engine predicting when Manchester United will score.
+                                            </p>
+                                        </div>
+                                    </header>
+                                    <main class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                                        <div class="lg:col-span-7 space-y-10">
+                                            <div class="space-y-4">
+                                                <label class="header-font text-3xl italic font-bold">
+                                                    CHOOSE TERRITORY
+                                                </label>
+                                                <div class="grid grid-cols-2 gap-6">
+                                                    <button onclick="setSide(1,this)" class="btn-side active p-6 flex flex-col items-center">
+                                                        <i data-lucide="home" class="w-10 h-10 mb-2">
+                                                        </i>
+                                                        <span class="text-2xl font-black uppercase">
+                                                            OLD TRAFFORD
+                                                        </span>
+                                                        <span class="text-xs opacity-60">
+                                                            HOME (1)
+                                                        </span>
+                                                    </button>
+                                                    <button onclick="setSide(2,this)" class="btn-side p-6 flex flex-col items-center">
+                                                        <i data-lucide="plane" class="w-10 h-10 mb-2">
+                                                        </i>
+                                                        <span class="text-2xl font-black uppercase">
+                                                            ON THE ROAD
+                                                        </span>
+                                                        <span class="text-xs opacity-60">
+                                                            AWAY (2)
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <input type="hidden" id="side" value="1">
+                                                </div>
+                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                                    <div class="space-y-2">
+                                                        <label class="uppercase text-xs font-bold tracking-widest text-zinc-500">
+                                                            Current Minute
+                                                        </label>
+                                                        <input type="number" id="minute" value="75" class="input-brutal w-full p-4 text-4xl font-bold">
+                                                        </div>
+                                                        <div class="space-y-2">
+                                                            <label class="uppercase text-xs font-bold tracking-widest text-zinc-500">
+                                                                Total Shots
+                                                            </label>
+                                                            <input type="number" id="shots" value="12" class="input-brutal w-full p-4 text-4xl font-bold">
+                                                            </div>
+                                                            <div class="space-y-2">
+                                                                <label class="uppercase text-xs font-bold tracking-widest text-zinc-500">
+                                                                    Match xG
+                                                                </label>
+                                                                <input type="number" id="xg" step="0.01" value="1.45" class="input-brutal w-full p-4 text-4xl font-bold">
+                                                                </div>
+                                                            </div>
+                                                            <button onclick="calculateGoal()" class="glitch-btn w-full py-8 text-4xl font-black italic tracking-tighter">
+                                                                INITIATE ATTACK
+                                                            </button>
+                                                        </div>
+                                                        <div class="lg:col-span-5">
+                                                            <div class="brutal-card p-10 h-full flex flex-col justify-center items-center relative overflow-hidden">
+                                                                <div id="loader" class="hidden flex flex-col items-center">
+                                                                    <div class="w-20 h-20 border-8 border-red-600 border-t-transparent rounded-full animate-spin">
+                                                                    </div>
+                                                                    <p class="mt-4 predicting font-bold text-red-600 italic">
+                                                                        ANALYZING PITCH DATA...
+                                                                    </p>
+                                                                </div>
+                                                                <div id="result-ui" class="text-center">
+                                                                    <h3 class="text-xl uppercase font-bold mb-2 tracking-widest text-red-600 italic">
+                                                                        Scoring Probability
+                                                                    </h3>
+                                                                    <p class="text-xs mb-8 opacity-50 uppercase">
+                                                                        Within the next 10 minutes of play
+                                                                    </p>
+                                                                    <div id="prob-value" class="text-[10rem] leading-none font-black header-font italic">
+                                                                        0
+                                                                        <span class="text-4xl">
+                                                                            %
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </main>
+                                                </div>
+                                                <script src="./js/api.js">
+                                                </script>
+                                                <script src="./js/app.js">
+                                                </script>
+                                                <script>
+                                                    lucide.createIcons();
+                                                </script>
+                                            </body>
+                                        </html>
