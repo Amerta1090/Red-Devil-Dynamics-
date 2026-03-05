@@ -173,5 +173,3 @@ Football is a complex system, and this project captures only a small portion of 
 
 This project is not affiliated with Manchester United Football Club.
 It is a fan-made analytics experiment created for learning and exploration in sports analytics and machine learning.
-
-```
